@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bx3jje37j0lbn"]
+[gd_scene load_steps=10 format=3 uid="uid://bx3jje37j0lbn"]
 
 [ext_resource type="Texture2D" uid="uid://cdky78x6t7n4" path="res://Assets/textures/dev/grids/Dark/texture_07.png" id="1_je1t8"]
 [ext_resource type="Texture2D" uid="uid://bxubft5pitkvv" path="res://Assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_ve2ue"]
@@ -7,6 +7,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwifb"]
 albedo_texture = ExtResource("1_je1t8")
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u34l5"]
+albedo_color = Color(0.380576, 0.510195, 0.587976, 1)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_65xnk"]
 panorama = ExtResource("1_ve2ue")
@@ -26,11 +29,42 @@ glow_enabled = true
 
 [node name="Stage" type="Node3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Stage"]
+[node name="Objects" type="Node3D" parent="Stage"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Stage/Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(20, 1, 20)
 material = SubResource("StandardMaterial3D_rwifb")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Stage/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02719, -15.05)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_rwifb")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Stage/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53447, 0.510496, -0.852256)
+use_collision = true
+material = SubResource("StandardMaterial3D_u34l5")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Stage/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53447, 0.510496, -1.85306)
+use_collision = true
+size = Vector3(1, 2, 1)
+material = SubResource("StandardMaterial3D_u34l5")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Stage/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53447, 0.510496, -2.83189)
+use_collision = true
+size = Vector3(1, 3, 1)
+material = SubResource("StandardMaterial3D_u34l5")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Stage/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53447, 0.510496, -3.83451)
+use_collision = true
+size = Vector3(1, 4, 1)
+material = SubResource("StandardMaterial3D_u34l5")
 
 [node name="Env" type="Node3D" parent="."]
 
@@ -44,9 +78,14 @@ shadow_enabled = true
 [node name="Player" type="CharacterBody3D" parent="."]
 script = ExtResource("3_pia5v")
 
-[node name="Collider" type="CollisionShape3D" parent="Player"]
+[node name="Standing_collider" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_hilnk")
+
+[node name="Crouching_collider" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_hilnk")
+disabled = true
 
 [node name="Head" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
