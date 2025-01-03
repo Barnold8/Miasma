@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bx3jje37j0lbn"]
+[gd_scene load_steps=36 format=3 uid="uid://bx3jje37j0lbn"]
 
 [ext_resource type="Texture2D" uid="uid://cdky78x6t7n4" path="res://Assets/textures/dev/grids/Dark/texture_07.png" id="1_je1t8"]
 [ext_resource type="Texture2D" uid="uid://bxubft5pitkvv" path="res://Assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_ve2ue"]
+[ext_resource type="Texture2D" uid="uid://cfm26xb3hlvye" path="res://Assets/textures/dev/grids/Orange/texture_05.png" id="2_34lh8"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_pia5v"]
 [ext_resource type="Script" path="res://Scripts/InteractorCast.gd" id="4_pmfm2"]
 
@@ -9,8 +10,76 @@
 albedo_texture = ExtResource("1_je1t8")
 uv1_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7q2x6"]
+albedo_texture = ExtResource("2_34lh8")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u34l5"]
 albedo_color = Color(0.380576, 0.510195, 0.587976, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0bs1"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioysf"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6qk6"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bm2t"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0es1"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hryhf"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgacr"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_020ky"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfdhu"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xj0p"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_367ac"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6px2j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vosw0"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyx5j"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edy61"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms3af"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ba0eh"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfysh"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2ebi"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_132ic"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_notm4"]
+albedo_texture = ExtResource("2_34lh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao8q2"]
+albedo_texture = ExtResource("2_34lh8")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_65xnk"]
 panorama = ExtResource("1_ve2ue")
@@ -38,7 +107,7 @@ height = 1.2
 [node name="Boxes" type="Node3D" parent="Stage/Objects"]
 
 [node name="Box1" type="CSGBox3D" parent="Stage/Objects/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3113e-06, -0.497782, -5.63264e-05)
 use_collision = true
 size = Vector3(20, 1, 20)
 material = SubResource("StandardMaterial3D_rwifb")
@@ -51,28 +120,144 @@ material = SubResource("StandardMaterial3D_rwifb")
 
 [node name="Box3" type="CSGBox3D" parent="Stage/Objects/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53447, 0.510496, -0.852256)
+material_override = SubResource("StandardMaterial3D_7q2x6")
 use_collision = true
 material = SubResource("StandardMaterial3D_u34l5")
 
 [node name="Box4" type="CSGBox3D" parent="Stage/Objects/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53447, 0.510496, -1.85306)
+material_override = SubResource("StandardMaterial3D_u0bs1")
 use_collision = true
 size = Vector3(1, 2, 1)
 material = SubResource("StandardMaterial3D_u34l5")
 
 [node name="Box5" type="CSGBox3D" parent="Stage/Objects/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53447, 0.510496, -2.83189)
+material_override = SubResource("StandardMaterial3D_ioysf")
 use_collision = true
 size = Vector3(1, 3, 1)
 material = SubResource("StandardMaterial3D_u34l5")
 
 [node name="Box6" type="CSGBox3D" parent="Stage/Objects/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53447, 0.510496, -3.83451)
+material_override = SubResource("StandardMaterial3D_n6qk6")
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_u34l5")
 
 [node name="Stairs" type="Node3D" parent="Stage/Objects"]
+
+[node name="BoxySteps" type="Node3D" parent="Stage/Objects/Stairs"]
+
+[node name="Stair48deg" type="CSGBox3D" parent="Stage/Objects/Stairs/BoxySteps"]
+transform = Transform3D(0.895, 0, 0, 0, 0.0368022, -3.01345, 0, 0.040873, 2.71332, -0.00597715, 0.987583, -3.6965)
+material_override = SubResource("StandardMaterial3D_0bm2t")
+use_collision = true
+
+[node name="Stair30deg" type="CSGBox3D" parent="Stage/Objects/Stairs/BoxySteps"]
+transform = Transform3D(0.895, 0, 0, 0, 0.0476314, -2.2725, 0, 0.0275, 3.93609, -1.0051, 1.1718, -3.2727)
+material_override = SubResource("StandardMaterial3D_y0es1")
+use_collision = true
+
+[node name="Stair22deg" type="CSGBox3D" parent="Stage/Objects/Stairs/BoxySteps"]
+transform = Transform3D(0.895, 0, 0, 0, 0.0509951, -1.70259, 0, 0.0206034, 4.21405, -2.17862, 0.871718, -3.28541)
+material_override = SubResource("StandardMaterial3D_hryhf")
+use_collision = true
+
+[node name="Stair14deg" type="CSGBox3D" parent="Stage/Objects/Stairs/BoxySteps"]
+transform = Transform3D(0.895, 0, 0, 0, 0.0533663, -1.09954, 0, 0.0133057, 4.40999, -3.32752, 0.577493, -3.2727)
+material_override = SubResource("StandardMaterial3D_tgacr")
+use_collision = true
+
+[node name="Stair4deg" type="CSGBox3D" parent="Stage/Objects/Stairs/BoxySteps"]
+transform = Transform3D(0.895, 0, 0, 0, 0.0547907, -0.396123, 0, 0.00479357, 4.52771, -4.83727, 0.222274, -3.2727)
+material_override = SubResource("StandardMaterial3D_020ky")
+use_collision = true
+
+[node name="Stair1deg" type="CSGBox3D" parent="Stage/Objects/Stairs/BoxySteps"]
+transform = Transform3D(0.895, 0, 0, 0, 0.0549916, -0.0793212, 0, 0.000959882, 4.54431, -6.54982, 0.0962057, -3.26233)
+material_override = SubResource("StandardMaterial3D_sfdhu")
+use_collision = true
+
+[node name="Stair0deg" type="CSGBox3D" parent="Stage/Objects/Stairs/BoxySteps"]
+transform = Transform3D(0.895, 0, 0, 0, 0.055, 0, 0, 0, 4.545, -7.74235, 0.039369, -3.26211)
+material_override = SubResource("StandardMaterial3D_2xj0p")
+use_collision = true
+
+[node name="RealismSteps" type="Node3D" parent="Stage/Objects/Stairs"]
+
+[node name="Stair collider" type="CSGBox3D" parent="Stage/Objects/Stairs/RealismSteps"]
+transform = Transform3D(0.67, 0, 0, 0, 0.185201, -4.29901, 0, 0.16793, 4.74115, 2.41602, 0.298738, -2.69331)
+visible = false
+use_collision = true
+
+[node name="StairMesh" type="Node3D" parent="Stage/Objects/Stairs/RealismSteps"]
+
+[node name="StepMesh" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 2.41675, -4.90525)
+material_override = SubResource("StandardMaterial3D_367ac")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh2" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 2.16984, -4.65619)
+material_override = SubResource("StandardMaterial3D_vosw0")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh3" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 1.92338, -4.40295)
+material_override = SubResource("StandardMaterial3D_iyx5j")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh4" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 1.67647, -4.1539)
+material_override = SubResource("StandardMaterial3D_edy61")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh5" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 1.42858, -3.90525)
+material_override = SubResource("StandardMaterial3D_ms3af")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh6" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 1.18167, -3.6562)
+material_override = SubResource("StandardMaterial3D_ba0eh")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh7" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 0.935212, -3.40295)
+material_override = SubResource("StandardMaterial3D_hfysh")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh8" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 0.688299, -3.1539)
+material_override = SubResource("StandardMaterial3D_b2ebi")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh9" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 0.444696, -2.90826)
+material_override = SubResource("StandardMaterial3D_132ic")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh10" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, 0.197782, -2.65921)
+material_override = SubResource("StandardMaterial3D_notm4")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
+
+[node name="StepMesh11" type="MeshInstance3D" parent="Stage/Objects/Stairs/RealismSteps/StairMesh"]
+transform = Transform3D(0.67, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.41767, -0.048676, -2.40596)
+material_override = SubResource("StandardMaterial3D_ao8q2")
+mesh = SubResource("BoxMesh_6px2j")
+skeleton = NodePath("../..")
 
 [node name="Env" type="Node3D" parent="."]
 
