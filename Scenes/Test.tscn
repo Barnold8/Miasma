@@ -317,7 +317,7 @@ spot_angle = 30.45
 [node name="ReadableBook" parent="Stage/Objects" instance=ExtResource("7_dqknu")]
 transform = Transform3D(0.2, 0, 0, 0, -0.0938943, 0.17659, 0, -0.17659, -0.0938943, 0.0115144, 1.01783, 19.9258)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Stage/Objects/ReadableBook"]
+[node name="ReadableBookCollider" type="CSGBox3D" parent="Stage/Objects/ReadableBook"]
 transform = Transform3D(1, 0, 0, 0, 0.999976, -8.34465e-06, 0, 8.34465e-06, 0.999976, 0.0196533, -0.0965805, 0)
 visible = false
 use_collision = true
