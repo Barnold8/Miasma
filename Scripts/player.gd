@@ -3,12 +3,11 @@ extends CharacterBody3D
 @onready var head: Node3D = $Head
 @onready var standing_collider: CollisionShape3D = $Standing_collider
 @onready var crouching_collider: CollisionShape3D = $Crouching_collider
-
+@onready var standing_ray: RayCast3D = $StandingRay
 
 ## Const variables - Read only
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.4
-
 
 ## Editable variables - Read and write
 var current_speed = 0.0
@@ -49,10 +48,12 @@ func _physics_process(delta: float) -> void:
 			current_speed = sprinting_speed
 		else:
 			current_speed = walking_speed
-			
-		standing_collider.disabled = false
-		crouching_collider.disabled = true
-		head.position.y = lerp(head.position.y, head_height, delta * smoothing_factor)
+		
+		if not standing_ray.is_colliding():
+			standing_collider.disabled = false
+			crouching_collider.disabled = true
+			head.position.y = lerp(head.position.y, head_height, delta * smoothing_factor)
+
 
 	# Add the gravity.
 	if not is_on_floor():
