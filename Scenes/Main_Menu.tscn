@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://4mmoke1wpo8v"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_86p7b"]
+[ext_resource type="Texture2D" uid="uid://cdky78x6t7n4" path="res://Assets/textures/dev/grids/Dark/texture_07.png" id="2_f8g88"]
+[ext_resource type="Texture2D" uid="uid://o2aof8uyo7ip" path="res://Assets/hdris/overcast_soil_puresky_1k.hdr" id="3_s8ber"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2ehl4"]
+panorama = ExtResource("3_s8ber")
+
+[sub_resource type="Sky" id="Sky_3bd7b"]
+sky_material = SubResource("PanoramaSkyMaterial_2ehl4")
+
+[sub_resource type="Environment" id="Environment_vyo6c"]
+background_mode = 2
+sky = SubResource("Sky_3bd7b")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcdxc"]
+albedo_texture = ExtResource("2_f8g88")
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000220299, 2.95302, 4.64529)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_86p7b")
+
+[node name="Start" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Options" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_vyo6c")
+
+[node name="Box1" type="CSGBox3D" parent="Env/WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3113e-06, -0.497782, -5.63264e-05)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_xcdxc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[connection signal="pressed" from="Control/VBoxContainer/Start" to="Control/VBoxContainer" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="Control/VBoxContainer" method="_on_quit_pressed"]

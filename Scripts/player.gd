@@ -25,6 +25,7 @@ var head_height = 0.0
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Hide mouse
 	head_height = head.position.y
+	get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion: # When the input event for a mouse movement is triggered...

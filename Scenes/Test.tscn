@@ -1,14 +1,19 @@
-[gd_scene load_steps=36 format=3 uid="uid://bx3jje37j0lbn"]
+[gd_scene load_steps=39 format=3 uid="uid://bx3jje37j0lbn"]
 
 [ext_resource type="Texture2D" uid="uid://cdky78x6t7n4" path="res://Assets/textures/dev/grids/Dark/texture_07.png" id="1_je1t8"]
-[ext_resource type="Texture2D" uid="uid://bxubft5pitkvv" path="res://Assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_ve2ue"]
 [ext_resource type="Texture2D" uid="uid://cfm26xb3hlvye" path="res://Assets/textures/dev/grids/Orange/texture_05.png" id="2_34lh8"]
+[ext_resource type="Texture2D" uid="uid://o2aof8uyo7ip" path="res://Assets/hdris/overcast_soil_puresky_1k.hdr" id="3_eh6qb"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_pia5v"]
 [ext_resource type="Script" path="res://Scripts/InteractorCast.gd" id="4_pmfm2"]
+[ext_resource type="PackedScene" uid="uid://di1mc4kxjp2sq" path="res://Assets/Models/retro_car_with_interior_psx_asset_free_gltf/scene.gltf" id="6_4j8ss"]
+[ext_resource type="PackedScene" uid="uid://dti68s4njuv11" path="res://Assets/Models/medieval_open_book_2/scene.gltf" id="7_dqknu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwifb"]
 albedo_texture = ExtResource("1_je1t8")
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_878ef"]
+albedo_texture = ExtResource("2_34lh8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7q2x6"]
 albedo_texture = ExtResource("2_34lh8")
@@ -82,16 +87,22 @@ albedo_texture = ExtResource("2_34lh8")
 albedo_texture = ExtResource("2_34lh8")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_65xnk"]
-panorama = ExtResource("1_ve2ue")
+panorama = ExtResource("3_eh6qb")
 
-[sub_resource type="Sky" id="Sky_3bd7b"]
+[sub_resource type="Sky" id="Sky_hvyo1"]
 sky_material = SubResource("PanoramaSkyMaterial_65xnk")
 
 [sub_resource type="Environment" id="Environment_d5rkb"]
 background_mode = 2
-sky = SubResource("Sky_3bd7b")
+sky = SubResource("Sky_hvyo1")
 tonemap_mode = 2
 glow_enabled = true
+fog_light_energy = 1.17
+fog_sun_scatter = 0.25
+fog_density = 0.1265
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2711
+volumetric_fog_emission = Color(0.341176, 0.34902, 0.34902, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hilnk"]
 
@@ -107,9 +118,22 @@ height = 1.2
 [node name="Boxes" type="Node3D" parent="Stage/Objects"]
 
 [node name="Box1" type="CSGBox3D" parent="Stage/Objects/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3113e-06, -0.497782, -5.63264e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00107896, -0.497782, 0.00393385)
 use_collision = true
 size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_rwifb")
+
+[node name="Box7" type="CSGBox3D" parent="Stage/Objects/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3113e-06, -0.497782, 19.9999)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_rwifb")
+
+[node name="Box8" type="CSGBox3D" parent="Stage/Objects/Boxes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0075897, 0.668534, 19.9999)
+material_override = SubResource("StandardMaterial3D_878ef")
+use_collision = true
+size = Vector3(0.5, 0.5, 0.7)
 material = SubResource("StandardMaterial3D_rwifb")
 
 [node name="Box2" type="CSGBox3D" parent="Stage/Objects/Boxes"]
@@ -259,7 +283,48 @@ material_override = SubResource("StandardMaterial3D_ao8q2")
 mesh = SubResource("BoxMesh_6px2j")
 skeleton = NodePath("../..")
 
+[node name="Car" parent="Stage/Objects" instance=ExtResource("6_4j8ss")]
+transform = Transform3D(-0.759271, 0, -0.650774, 0, 1, 0, 0.650774, 0, -0.759271, 7.54, 0.774312, 27.1814)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Stage/Objects/Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.447897, -0.11529, 2.02526)
+light_color = Color(1, 1, 0.6, 1)
+light_energy = 0.05
+light_volumetric_fog_energy = 2.033
+light_size = 0.01
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Stage/Objects/Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.688319, -0.1176, 1.95033)
+light_color = Color(1, 1, 0.6, 1)
+light_energy = 0.05
+light_volumetric_fog_energy = 2.033
+light_size = 0.01
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Stage/Objects/Car"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.446791, -0.116544, 2.0296)
+light_color = Color(1, 1, 0.741176, 1)
+light_energy = 14.253
+spot_range = 1.418
+spot_angle = 30.45
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Stage/Objects/Car"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.706064, -0.111705, 1.91952)
+light_color = Color(1, 1, 0.741176, 1)
+light_energy = 14.253
+spot_range = 1.418
+spot_angle = 30.45
+
+[node name="ReadableBook" parent="Stage/Objects" instance=ExtResource("7_dqknu")]
+transform = Transform3D(0.2, 0, 0, 0, -0.0938943, 0.17659, 0, -0.17659, -0.0938943, 0.0115144, 1.01783, 19.9258)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Stage/Objects/ReadableBook"]
+transform = Transform3D(1, 0, 0, 0, 0.999976, -8.34465e-06, 0, 8.34465e-06, 0.999976, 0.0196533, -0.0965805, 0)
+visible = false
+use_collision = true
+size = Vector3(2.06128, 1.64069, 1)
+
 [node name="Env" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000264049, -0.00230479, -0.00239563)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
 environment = SubResource("Environment_d5rkb")
@@ -267,6 +332,7 @@ environment = SubResource("Environment_d5rkb")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
+sky_mode = 2
 
 [node name="Player" type="CharacterBody3D" parent="."]
 script = ExtResource("3_pia5v")
@@ -292,3 +358,9 @@ script = ExtResource("4_pmfm2")
 [node name="StandingRay" type="RayCast3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00283509, 1.21139, 0.00287938)
 target_position = Vector3(0, 1, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,5 @@
+1st person camera: https://www.youtube.com/watch?v=xIKErMgJ1Yk
+kloofendal_48d_partly_cloudy_puresky_2k.hdr: https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky
+texture_07.png: https://www.kenney.nl/assets/prototype-textures
+overcast_soil_puresky_1k.hdr: https://polyhaven.com/a/overcast_soil_puresky
+retro_car_with_interior_psx_asset_free_gltf: https://sketchfab.com/3d-models/retro-car-with-interior-psx-asset-free-6d94b353f7b0429d9c6092bd823951ec
