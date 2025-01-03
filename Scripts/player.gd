@@ -1,10 +1,14 @@
 extends CharacterBody3D
 
 @onready var head: Node3D = $Head
+@onready var standing_collider: CollisionShape3D = $Standing_collider
+@onready var crouching_collider: CollisionShape3D = $Crouching_collider
+
 
 ## Const variables - Read only
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.4
+
 
 ## Editable variables - Read and write
 var current_speed = 0.0
@@ -17,7 +21,8 @@ var head_height = 0.0
 @export var walking_speed = 5.0
 @export var sprinting_speed = 8.0
 @export var crouching_speed = 1.0
-@export var crouching_depth = 0.7
+@export var crouching_depth = 0.5
+@export var smoothing_factor = 12
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Hide mouse
@@ -35,14 +40,19 @@ func _physics_process(delta: float) -> void:
 		get_tree().quit()
 
 	if Input.is_action_pressed("crouch"):
-		head.position.y = crouching_depth
+		head.position.y = lerp(head.position.y, crouching_depth, delta * smoothing_factor)
+		standing_collider.disabled = true
+		crouching_collider.disabled = false
 		current_speed = crouching_speed
 	else:
 		if Input.is_action_pressed("sprint"):
 			current_speed = sprinting_speed
 		else:
 			current_speed = walking_speed
-		head.position.y = head_height
+			
+		standing_collider.disabled = false
+		crouching_collider.disabled = true
+		head.position.y = lerp(head.position.y, head_height, delta * smoothing_factor)
 
 	# Add the gravity.
 	if not is_on_floor():
