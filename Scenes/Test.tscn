@@ -362,5 +362,14 @@ target_position = Vector3(0, 1, 0)
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1151.0
+offset_bottom = 650.0
+
+[node name="InteractText" type="RichTextLabel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 81.0
+offset_right = 243.0
+offset_bottom = 28.0
+scale = Vector2(0.55, 0.55)
+text = "Press \"E\" to interact"
