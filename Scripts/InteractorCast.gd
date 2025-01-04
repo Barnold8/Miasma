@@ -18,9 +18,16 @@ func _process(delta: float) -> void:
 			"ReadableBookCollider":
 				interact_text.visible = true
 				if Input.is_action_just_pressed("interact"):
-					print(collider.get_class())
-			"":
-				print("Two are better than one!")
+
+					var foo = collider.get_script()
+					
+					print(collider.get_indexed("bookContent").title)
+					#print(foo.bookContent)
+
+					#for dict in collider.get_property_list():
+						#if dict.find_key("Book"):
+							#print(dict)
+
 			_:
 				pass
 				
