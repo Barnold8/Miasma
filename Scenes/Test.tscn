@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bx3jje37j0lbn"]
+[gd_scene load_steps=45 format=3 uid="uid://bx3jje37j0lbn"]
 
 [ext_resource type="Texture2D" uid="uid://cdky78x6t7n4" path="res://Assets/textures/dev/grids/Dark/texture_07.png" id="1_je1t8"]
 [ext_resource type="Texture2D" uid="uid://cfm26xb3hlvye" path="res://Assets/textures/dev/grids/Orange/texture_05.png" id="2_34lh8"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://Scripts/InteractorCast.gd" id="4_pmfm2"]
 [ext_resource type="PackedScene" uid="uid://di1mc4kxjp2sq" path="res://Assets/Models/retro_car_with_interior_psx_asset_free_gltf/scene.gltf" id="6_4j8ss"]
 [ext_resource type="Resource" uid="uid://dwt4ebhr1ln7x" path="res://Resources/TestBook.tres" id="6_6qbwu"]
+[ext_resource type="Resource" uid="uid://bm0rs6qwq0sww" path="res://Resources/TestBook3.tres" id="6_37uk6"]
 [ext_resource type="PackedScene" uid="uid://dti68s4njuv11" path="res://Assets/Models/medieval_open_book_2/scene.gltf" id="7_dqknu"]
+[ext_resource type="Resource" uid="uid://ctg8hjcdw87y2" path="res://Resources/TestBook2.tres" id="7_ovo4y"]
 [ext_resource type="Texture2D" uid="uid://btvdi6xb2lpat" path="res://Assets/textures/bloodiedpaper.png" id="9_5nmde"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwifb"]
@@ -151,7 +153,21 @@ size = Vector3(20, 1, 20)
 material = SubResource("StandardMaterial3D_rwifb")
 
 [node name="Box8" type="CSGBox3D" parent="Stage/Objects/Boxes"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0075897, 0.668534, 19.9999)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.31037, 0.668534, 19.9999)
+material_override = SubResource("StandardMaterial3D_878ef")
+use_collision = true
+size = Vector3(0.5, 0.5, 0.7)
+material = SubResource("StandardMaterial3D_rwifb")
+
+[node name="Box9" type="CSGBox3D" parent="Stage/Objects/Boxes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0474422, 0.668534, 19.9999)
+material_override = SubResource("StandardMaterial3D_878ef")
+use_collision = true
+size = Vector3(0.5, 0.5, 0.7)
+material = SubResource("StandardMaterial3D_rwifb")
+
+[node name="Box10" type="CSGBox3D" parent="Stage/Objects/Boxes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.60035, 0.668534, 19.9999)
 material_override = SubResource("StandardMaterial3D_878ef")
 use_collision = true
 size = Vector3(0.5, 0.5, 0.7)
@@ -336,7 +352,7 @@ spot_range = 1.418
 spot_angle = 30.45
 
 [node name="ReadableBook" parent="Stage/Objects" instance=ExtResource("7_dqknu")]
-transform = Transform3D(0.2, 0, 0, 0, -0.0938943, 0.17659, 0, -0.17659, -0.0938943, 0.0099071, 1.01783, 19.9246)
+transform = Transform3D(0.2, 0, 0, 0, -0.0938943, 0.17659, 0, -0.17659, -0.0938943, 2.27613, 1.01783, 19.9246)
 
 [node name="ReadableBookCollider" type="CSGBox3D" parent="Stage/Objects/ReadableBook"]
 transform = Transform3D(1, 0, 0, 0, 0.999976, -8.34465e-06, 0, 8.34465e-06, 0.999976, 0.0196533, -0.0965805, 0)
@@ -345,6 +361,28 @@ use_collision = true
 size = Vector3(2.06128, 1.64069, 1)
 script = SubResource("GDScript_vsn1k")
 bookContent = ExtResource("6_6qbwu")
+
+[node name="ReadableBook3" parent="Stage/Objects" instance=ExtResource("7_dqknu")]
+transform = Transform3D(0.2, 0, 0, 0, -0.0938943, 0.17659, 0, -0.17659, -0.0938943, -2.58143, 1.01783, 19.9246)
+
+[node name="ReadableBookCollider" type="CSGBox3D" parent="Stage/Objects/ReadableBook3"]
+transform = Transform3D(1, 0, 0, 0, 0.999976, -8.34465e-06, 0, 8.34465e-06, 0.999976, 0.0196533, -0.0965805, 0)
+visible = false
+use_collision = true
+size = Vector3(2.06128, 1.64069, 1)
+script = SubResource("GDScript_vsn1k")
+bookContent = ExtResource("6_37uk6")
+
+[node name="ReadableBook2" parent="Stage/Objects" instance=ExtResource("7_dqknu")]
+transform = Transform3D(0.2, 0, 0, 0, -0.0938943, 0.17659, 0, -0.17659, -0.0938943, 0.0289934, 1.01783, 19.9246)
+
+[node name="ReadableBookCollider" type="CSGBox3D" parent="Stage/Objects/ReadableBook2"]
+transform = Transform3D(1, 0, 0, 0, 0.999976, -8.34465e-06, 0, 8.34465e-06, 0.999976, 0.0196533, -0.0965805, 0)
+visible = false
+use_collision = true
+size = Vector3(2.06128, 1.64069, 1)
+script = SubResource("GDScript_vsn1k")
+bookContent = ExtResource("7_ovo4y")
 
 [node name="Env" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000264049, -0.00230479, -0.00239563)
@@ -382,7 +420,7 @@ script = ExtResource("4_pmfm2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00283509, 1.21139, 0.00287938)
 target_position = Vector3(0, 1, 0)
 
-[node name="Control" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 8.0
@@ -390,13 +428,13 @@ offset_top = 26.0
 offset_right = 1159.0
 offset_bottom = 676.0
 
-[node name="Bloodiedpaper" type="Sprite2D" parent="Control"]
+[node name="Bloodiedpaper" type="Sprite2D" parent="UI"]
 visible = false
 position = Vector2(133.719, 54.3125)
 scale = Vector2(0.531185, 0.451562)
 texture = ExtResource("9_5nmde")
 
-[node name="BookContents" type="RichTextLabel" parent="Control/Bloodiedpaper"]
+[node name="BookContents" type="RichTextLabel" parent="UI/Bloodiedpaper"]
 offset_left = -153.843
 offset_top = -106.99
 offset_right = 157.157
@@ -407,11 +445,11 @@ text = "Error! No text has been
 set for this book!"
 fit_content = true
 
-[node name="InteractText" type="RichTextLabel" parent="Control"]
-visible = false
+[node name="InteractText" type="RichTextLabel" parent="UI"]
 layout_mode = 0
-offset_left = 81.0
-offset_right = 243.0
-offset_bottom = 28.0
+offset_left = 89.0
+offset_top = -20.0
+offset_right = 251.0
+offset_bottom = 8.0
 scale = Vector2(0.55, 0.55)
 text = "Press \"E\" to interact"

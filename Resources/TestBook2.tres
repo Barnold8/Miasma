@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Book" load_steps=2 format=3 uid="uid://ctg8hjcdw87y2"]
+
+[ext_resource type="Script" path="res://Resources/Definitions/BookResource.gd" id="1_huufv"]
+
+[resource]
+script = ExtResource("1_huufv")
+contents = "This is yet another test!"

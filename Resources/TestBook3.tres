@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Book" load_steps=2 format=3 uid="uid://bm0rs6qwq0sww"]
+
+[ext_resource type="Script" path="res://Resources/Definitions/BookResource.gd" id="1_3w585"]
+
+[resource]
+script = ExtResource("1_3w585")
+contents = "Wow!"
