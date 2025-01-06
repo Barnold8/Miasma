@@ -4,3 +4,5 @@ texture_07.png: https://www.kenney.nl/assets/prototype-textures
 overcast_soil_puresky_1k.hdr: https://polyhaven.com/a/overcast_soil_puresky
 retro_car_with_interior_psx_asset_free_gltf: https://sketchfab.com/3d-models/retro-car-with-interior-psx-asset-free-6d94b353f7b0429d9c6092bd823951ec
 paper: https://static.vecteezy.com/system/resources/thumbnails/018/742/946/small_2x/white-ripped-piece-of-paper-isolated-on-transparent-background-file-png.png
+blood found on paper image: https://www.vecteezy.com/free-png/blood-texture
+engine idle: https://pixabay.com/sound-effects/car-idle-1-blyth-21-6-12-62010/

@@ -1,2 +1,5 @@
 get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED <- disable PS1 effect
 get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT <- enable PS1 effect
+
+
+https://www.youtube.com/watch?v=sTVk-Bx2aks

@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://bx3jje37j0lbn"]
+[gd_scene load_steps=46 format=3 uid="uid://bx3jje37j0lbn"]
 
 [ext_resource type="Texture2D" uid="uid://cdky78x6t7n4" path="res://Assets/textures/dev/grids/Dark/texture_07.png" id="1_je1t8"]
 [ext_resource type="Texture2D" uid="uid://cfm26xb3hlvye" path="res://Assets/textures/dev/grids/Orange/texture_05.png" id="2_34lh8"]
 [ext_resource type="Texture2D" uid="uid://o2aof8uyo7ip" path="res://Assets/hdris/overcast_soil_puresky_1k.hdr" id="3_eh6qb"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="3_pia5v"]
+[ext_resource type="AudioStream" uid="uid://bt4w2iwkas0lu" path="res://Assets/Audio/idle.mp3" id="4_dpc7x"]
 [ext_resource type="Script" path="res://Scripts/InteractorCast.gd" id="4_pmfm2"]
 [ext_resource type="PackedScene" uid="uid://di1mc4kxjp2sq" path="res://Assets/Models/retro_car_with_interior_psx_asset_free_gltf/scene.gltf" id="6_4j8ss"]
 [ext_resource type="Resource" uid="uid://dwt4ebhr1ln7x" path="res://Resources/TestBook.tres" id="6_6qbwu"]
@@ -120,7 +121,6 @@ glow_enabled = true
 fog_light_energy = 1.17
 fog_sun_scatter = 0.25
 fog_density = 0.1265
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.2711
 volumetric_fog_emission = Color(0.341176, 0.34902, 0.34902, 1)
 
@@ -148,6 +148,18 @@ material = SubResource("StandardMaterial3D_rwifb")
 
 [node name="Box7" type="CSGBox3D" parent="Stage/Objects/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00634289, -0.49297, 19.9869)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_rwifb")
+
+[node name="Box11" type="CSGBox3D" parent="Stage/Objects/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9883, -0.49297, 19.9869)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_rwifb")
+
+[node name="Box12" type="CSGBox3D" parent="Stage/Objects/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9293, -0.492972, 19.9969)
 use_collision = true
 size = Vector3(20, 1, 20)
 material = SubResource("StandardMaterial3D_rwifb")
@@ -351,6 +363,13 @@ light_energy = 14.253
 spot_range = 1.418
 spot_angle = 30.45
 
+[node name="Idle" type="AudioStreamPlayer3D" parent="Stage/Objects/Car"]
+transform = Transform3D(-0.759272, 0, 0.650774, 0, 1, 0, -0.650774, 0, -0.759272, -0.235261, 0.17361, 1.16266)
+stream = ExtResource("4_dpc7x")
+autoplay = true
+max_distance = 39.01
+parameters/looping = true
+
 [node name="ReadableBook" parent="Stage/Objects" instance=ExtResource("7_dqknu")]
 transform = Transform3D(0.2, 0, 0, 0, -0.0938943, 0.17659, 0, -0.17659, -0.0938943, 2.27613, 1.01783, 19.9246)
 
@@ -453,3 +472,5 @@ offset_right = 251.0
 offset_bottom = 8.0
 scale = Vector2(0.55, 0.55)
 text = "Press \"E\" to interact"
+
+[node name="Node3D" type="Node3D" parent="."]
