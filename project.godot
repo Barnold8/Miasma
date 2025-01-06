@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
-window/stretch/scale=4.71
+window/size/mode=2
+window/stretch/aspect="keep_width"
+window/stretch/scale=4.14
 
 [input]
 

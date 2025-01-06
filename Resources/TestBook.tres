@@ -1,9 +1,7 @@
-[gd_resource type="Resource" script_class="Book" load_steps=2 format=3 uid="uid://covdrsfj36q0d"]
+[gd_resource type="Resource" script_class="Book" load_steps=2 format=3 uid="uid://dwt4ebhr1ln7x"]
 
 [ext_resource type="Script" path="res://Resources/Definitions/BookResource.gd" id="1_h7poq"]
 
 [resource]
 script = ExtResource("1_h7poq")
-title = "Test"
-author = "ABC"
-contents = "123"
+contents = "Test123"

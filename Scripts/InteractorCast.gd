@@ -1,5 +1,9 @@
 extends RayCast3D
+
 @onready var interact_text: RichTextLabel = $"../../../../Control/InteractText"
+@onready var bloodiedpaper: Sprite2D = $"../../../../Control/Bloodiedpaper"
+@onready var player: CharacterBody3D = $"../../.."
+@onready var book_contents: RichTextLabel = $"../../../../Control/Bloodiedpaper/BookContents"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,20 +22,12 @@ func _process(delta: float) -> void:
 			"ReadableBookCollider":
 				interact_text.visible = true
 				if Input.is_action_just_pressed("interact"):
-
-					var foo = collider.get_script()
-					
-					print(collider.get_indexed("bookContent").title)
-					#print(foo.bookContent)
-
-					#for dict in collider.get_property_list():
-						#if dict.find_key("Book"):
-							#print(dict)
-
+					bloodiedpaper.visible = true
+					book_contents.clear()
+					book_contents.add_text(collider.get_indexed("bookContent").contents)
+					player.user_control = false
 			_:
 				pass
 				
 	else:
 		interact_text.visible = false
-	
-	pass
